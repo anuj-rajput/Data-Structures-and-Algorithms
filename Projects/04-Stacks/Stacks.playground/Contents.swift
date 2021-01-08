@@ -25,3 +25,50 @@ example(of: "initializing a stack from an array literal") {
     print(stack)
     stack.pop()
 }
+
+
+
+/// Stack Challenges
+/// Reverse an Array
+/// Create a functtion that prints the contents of an array in reversed order.
+
+func printReversed<Element>(_ array: [Element]) {
+    var stack = Stack<Element>()
+    
+    for value in array {
+        stack.push(value)
+    }
+    
+    while let value = stack.pop() {
+        print(value)
+    }
+}
+
+printReversed(["123","123","233","53444","23333"])
+
+
+/// Balance the parantheses
+/// Check for balanced parentheses. Given a string, check if there are ( and ) characters, and return true if the parentheses in the string are balanced. For example:
+/// h((e))llo(world)() // balanced parentheses
+/// (hello world // unbalanced parentheses
+
+func checkParantheses(_ string: String) -> Bool {
+    var stack = Stack<Character>()
+    
+    for characer in string {
+        if characer == "(" {
+            stack.push(characer)
+        } else if characer == ")" {
+            if stack.isEmpty {
+                return false
+            } else {
+                stack.pop()
+            }
+        }
+    }
+    
+    return stack.isEmpty
+}
+
+checkParantheses("h((e))llo(world)()")
+checkParantheses("(hello world")

@@ -29,3 +29,12 @@ Queues can be created in four different ways:
 - Using a ring buffer
 - Using two stacks
 
+### Using an array
+Resizing is an O(n) operation. Resising requires the array to allocate new memory and copy all existing data over to the new array.
+Removing an element from the front of the queue is an O(n) operation.
+
+Operations|Best case|Worst case
+-------------|-----------|-------------
+enqueue(_:)|O(1)|O(1)
+dequeue(_:)|O(1)|O(1)
+Space Complexity|O(n)|O(n)

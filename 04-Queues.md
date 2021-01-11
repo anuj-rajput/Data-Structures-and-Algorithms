@@ -36,5 +36,16 @@ Removing an element from the front of the queue is an O(n) operation.
 Operations|Best case|Worst case
 -------------|-----------|-------------
 enqueue(_:)|O(1)|O(1)
+dequeue(_:)|O(n)|O(n)
+Space Complexity|O(n)|O(n)
+
+
+### Doubly linked list implementation
+Operations|Best case|Worst case
+-------------|-----------|-------------
+enqueue(_:)|O(1)|O(1)
 dequeue(_:)|O(1)|O(1)
 Space Complexity|O(n)|O(n)
+
+One of the main problems with `QueueArray` is that dequeuing an item takes linear time. With the linked list implementation, we have reduced it to a constant operation, O(1). All we needed to do was update the node's `previous` and `next` pointers.
+The main weakness with `QueueLinkedList` is, despite O(1) performance, it suffers from a high overhead. Each element has to have extra storage for the forward and back reference. Every time you create a new element, it requires an expensive dynamic allocation. `QueueArray` does bulk allocation which is faster.

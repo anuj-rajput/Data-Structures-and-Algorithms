@@ -49,3 +49,14 @@ Space Complexity|O(n)|O(n)
 
 One of the main problems with `QueueArray` is that dequeuing an item takes linear time. With the linked list implementation, we have reduced it to a constant operation, O(1). All we needed to do was update the node's `previous` and `next` pointers.
 The main weakness with `QueueLinkedList` is, despite O(1) performance, it suffers from a high overhead. Each element has to have extra storage for the forward and back reference. Every time you create a new element, it requires an expensive dynamic allocation. `QueueArray` does bulk allocation which is faster.
+
+
+### Ring buffer implementation
+A ring buffer, also known as circular buffer, is a fixed-size array. This data structure strategically wraps around to the beginning when there are no more items to remove at the end.
+
+The ring buffer has two pointers that keep track of two things:
+- The read pointer keeps track of the front of the queue.
+- The write pointer keeps track of the next available slot so that you can override existing elements that have already been read.
+
+Each time that you add an item to the queue, the write pointer increments by one.
+Whenever the read and write pointers are at the same index, that means the queue is empty.

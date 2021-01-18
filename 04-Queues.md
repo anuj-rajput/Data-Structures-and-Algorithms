@@ -68,3 +68,17 @@ dequeue(_:)|O(1)|O(1)
 Space Complexity|O(n)|O(n)
 
 The ring buffer based queue has the same time complexity for enqueue and dequeue as the linked list implementation. The only difference is the space complexity. The ring buffer has a fixed size, which means that enqueue can fail.
+
+
+### Double stack implementation
+Operations|Best case|Worst case
+-------------|-----------|-------------
+enqueue(_:)|O(1)|O(1)
+dequeue(_:)|O(1)|O(1)
+Space Complexity|O(n)|O(n)
+
+Compared to array based implementation, by leveraging two stacks, you were able to transform dequeue(_:) into an amortized O(1) operation.
+
+Two stack implementation is fully dynamic and doesn't have fixed size restriction that ring buffer based implementation has.
+
+It beats the linked list in terms of spacial locality because array elements are next to each other in memory block so a large number of elements will be loaded in the cache on the first access.
